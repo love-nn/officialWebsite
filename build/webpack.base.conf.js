@@ -4,7 +4,7 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -31,6 +31,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.scss$/,
+        loaders: 'sass'
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -67,17 +71,17 @@ module.exports = {
       },
       {
         // 此种方法在控制台中标签样式显示的是style标签样式
-          test: /\.less$/,
-          loader: "style-loader!css-loader!less-loader",
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader",
       },
       {
         // 外来字体的导入
-          test:/\.(ttc)(\?.*)?$/,
-          loader:'url-loader',
-          // options:{
-          //   limit:10000,
-          //   name:utils.assetsPath('font/[name].[hash:7].[ext]')
-          // }
+        test: /\.(ttc)(\?.*)?$/,
+        loader: 'url-loader',
+        // options:{
+        //   limit:10000,
+        //   name:utils.assetsPath('font/[name].[hash:7].[ext]')
+        // }
       }
     ]
   },

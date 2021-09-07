@@ -12,3 +12,6 @@ export const getNews = ()=>{
 export const getNewsDetail = ()=>{
     return axios.get('/index/news/table/in');
 }
+export const getProject = ()=>{
+    return axios.get('/index/project/table')
+}

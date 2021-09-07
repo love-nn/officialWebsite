@@ -22,11 +22,10 @@
         :default-active="activeIndex"
         class="headerBar2"
         mode="horizontal"
-        @select="handleSelect"
         active-text-color="#FFFFB9"
       >
         <el-menu-item index="1" @click="goBuilding">社团资源</el-menu-item>
-        <el-submenu index="2">
+        <!-- <el-submenu index="2">
           <template slot="title">部门介绍</template>
           <el-menu-item index="2-1" @click="goYunying">运营部</el-menu-item>
           <el-menu-item index="2-2" @click="goSheji">设计部</el-menu-item>
@@ -42,7 +41,7 @@
             >
           </el-submenu>
         </el-submenu>
-        <el-menu-item index="3" @click="goTeacher">导师介绍</el-menu-item>
+        <el-menu-item index="3" @click="goTeacher">导师介绍</el-menu-item> -->
         <el-menu-item index="4" @click="goHome">关于我们</el-menu-item>
       </el-menu>
     </div>
@@ -54,39 +53,14 @@ export default {
   name: "header",
   data() {
     return {
-      activeIndex: this.$store.activeIndex,
+      activeIndex: "4",
       isShow: 1,
     };
   },
 
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
     goHome() {
       this.$router.push("/home").catch((err) => err);
-    },
-    goQianduan() {
-      this.activeIndex = 2;
-      this.$router.push("/qianduan").catch((err) => err);
-    },
-    goHouduan() {
-      this.$router.push("/houduan").catch((err) => err);
-    },
-    goYidong() {
-      this.$router.push("/yidong").catch((err) => err);
-    },
-    goChanpin() {
-      this.$router.push("/chanpin").catch((err) => err);
-    },
-    goYunying() {
-      this.$router.push("/yunying").catch((err) => err);
-    },
-    goSheji() {
-      this.$router.push("/sheji").catch((err) => err);
-    },
-    goTeacher() {
-      this.$router.push("/teacher").catch((err) => err);
     },
     goBuilding() {
       this.$router.push("/building").catch((err) => err);
@@ -122,7 +96,7 @@ export default {
 .headerBar2 {
   float: right;
   margin-top: 5px;
-  width: 500px;
+  width: 250px;
   color: white;
   font-family: "Microsoft Yahei";
   font-size: 24px;

@@ -1,35 +1,48 @@
 <template>
-<transition  name="hello" appear>
-  <div v-show="isShow">
-    <button @click="isShow = !isShow">显示/隐藏</button>
-    
-      <h1 >你好啊</h1>
-
+  <div class="test">
+    <vheader></vheader>
+    <swiper ref="mySwiper" :options="swiperOptions">
+      <swiper-slide>
+        <carousel></carousel>
+      </swiper-slide>
+      <swiper-slide>
+        <officeInfo></officeInfo>
+      </swiper-slide>
+      <swiper-slide>
+        <depart></depart>
+      </swiper-slide>
+      <swiper-slide>
+        <project></project>
+      </swiper-slide>
+    </swiper>
+    <vfooter></vfooter>
   </div>
-      </transition>
 </template>
 
 <script>
+import vheader from "./header.vue";
+import carousel from "./carousel.vue";
+import vfooter from "./footer.vue";
+import depart from "./departInfo.vue";
+import project from "./projectInfo.vue";
 export default {
+  components: { vheader, carousel, vfooter, project, depart },
   data() {
     return {
-      isShow: true,
+      swiperOptions: {
+        pagination: "swiper-pagination",
+        loop: true,
+        speed: 500,
+        direction: "vertical",
+      },
     };
   },
 };
 </script>
-
-<style scoped>
-div {
-  background-color: pink;
-  transition: 0.5s linear;
-}
-.hello-enter,
-.hello-leave-to {
-  transform: translateX(-100%);
-}
-.hello-enter-to,
-.hello-leave {
-  transform: translateX(0);
+ 
+<style>
+.test {
+  height: 800px;
+  overflow: hidden;
 }
 </style>

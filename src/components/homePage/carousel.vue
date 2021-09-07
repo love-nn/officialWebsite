@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel" >
+  <div class="carousel">
     <el-card>
       <el-carousel  trigger="click" height="600px">
         <el-carousel-item v-for="item in imgList" :key="item.cid">
@@ -30,8 +30,8 @@ export default {
   methods:{
     getPic:async function(){
       let resp = await getCarousel()
-      this.imgList = resp.data;
-      console.log(resp.data);
+      this.imgList = resp.data.body;
+      // console.log(this.imgList);
     }
   }
 };
@@ -47,11 +47,5 @@ export default {
   opacity: 0.75;
   line-height: 200px;
   margin: 0;
-}
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
 }
 </style>
